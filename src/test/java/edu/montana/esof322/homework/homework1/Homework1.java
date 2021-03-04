@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class Homework1 {
 
     @Test
-    void fixThisTest() { assertFalse(false);
+    void fixThisTest() { assertTrue(true);
     }
 
     @Test
