@@ -9,14 +9,18 @@
 [INFO] Copying 15 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ ESOF_322_Project ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to /home/carson/Projects/msu/esof-322-spring2021/grading/scripts/repos/joshua_anderson/target/classes
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ESOF_322_Project ---
 [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 [INFO] skip non existing resourceDirectory /home/carson/Projects/msu/esof-322-spring2021/grading/scripts/repos/joshua_anderson/src/test/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ ESOF_322_Project ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 42 source files to /home/carson/Projects/msu/esof-322-spring2021/grading/scripts/repos/joshua_anderson/target/test-classes
+[INFO] /home/carson/Projects/msu/esof-322-spring2021/grading/scripts/repos/joshua_anderson/src/test/java/edu/montana/esof322/demo/controlflow/ControlFlowDemo.java: /home/carson/Projects/msu/esof-322-spring2021/grading/scripts/repos/joshua_anderson/src/test/java/edu/montana/esof322/demo/controlflow/ControlFlowDemo.java uses unchecked or unsafe operations.
+[INFO] /home/carson/Projects/msu/esof-322-spring2021/grading/scripts/repos/joshua_anderson/src/test/java/edu/montana/esof322/demo/controlflow/ControlFlowDemo.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.1:test (default-test) @ ESOF_322_Project ---
 [INFO] 
@@ -24,7 +28,7 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running edu.montana.esof322.homework.homework1.Homework1
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in edu.montana.esof322.homework.homework1.Homework1
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in edu.montana.esof322.homework.homework1.Homework1
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -33,6 +37,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.119 s
-[INFO] Finished at: 2021-03-10T11:29:59-07:00
+[INFO] Total time:  8.598 s
+[INFO] Finished at: 2021-03-18T19:56:50-06:00
 [INFO] ------------------------------------------------------------------------
