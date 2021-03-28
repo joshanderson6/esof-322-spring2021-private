@@ -1,6 +1,11 @@
 package edu.montana.esof322.homework.homework2;
 
+import edu.montana.esof322.demo.patterns.creation.FactoryDemo;
 import org.junit.jupiter.api.Test;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -8,11 +13,30 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class Homework2 {
 
     int invocationCount = 0;
-    StringBuilder output = new StringBuilder();
+    static StringBuilder output = new StringBuilder();
 
-    class ThingDoer {
-        void doIt() {
+    public interface IDoAThing {
+        void doIt();
+    }
+
+    class ThingDoer implements IDoAThing {
+        public void doIt() {
             output.append("Did it!\n");
+        }
+    }
+
+    public class DoerFactory {
+        public IDoAThing getDoer() {
+            ThingDoer thing = new ThingDoer();
+            return (IDoAThing) Proxy.newProxyInstance(DoerFactory.class.getClassLoader(), new Class[]{IDoAThing.class},
+                        new InvocationHandler() {
+                            @Override
+                            public Object invoke(Object o, Method method, Object[] objects) throws Throwable {
+                                System.out.println("Proxied method call on thingDoer!");
+                                invocationCount++;
+                                return method.invoke(thing, objects);
+                            }
+            });
         }
     }
 
@@ -28,7 +52,8 @@ public class Homework2 {
 
         // Step 2: replace this new expression with a factory to produce
         //         IDoAThings
-        ThingDoer thingDoer = new ThingDoer();
+        DoerFactory factory = new DoerFactory();
+        IDoAThing thingDoer = factory.getDoer();
 
         // Step 3: use the factory to insert a proxy object that wraps
         //         a ThingDoer and increments the invocationCount
