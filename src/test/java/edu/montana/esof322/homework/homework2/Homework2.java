@@ -28,6 +28,7 @@ public class Homework2 {
     public class DoerFactory {
         public IDoAThing getDoer() {
             ThingDoer thing = new ThingDoer();
+            // the hard way, I like it.
             return (IDoAThing) Proxy.newProxyInstance(DoerFactory.class.getClassLoader(), new Class[]{IDoAThing.class},
                         new InvocationHandler() {
                             @Override
@@ -52,6 +53,7 @@ public class Homework2 {
 
         // Step 2: replace this new expression with a factory to produce
         //         IDoAThings
+        // ideally this is static, but no points off
         DoerFactory factory = new DoerFactory();
         IDoAThing thingDoer = factory.getDoer();
 
