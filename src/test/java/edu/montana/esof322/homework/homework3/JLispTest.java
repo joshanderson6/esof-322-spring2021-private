@@ -2,6 +2,8 @@ package edu.montana.esof322.homework.homework3;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class JLispTest {
@@ -30,6 +32,58 @@ public class JLispTest {
     // tests showing *different* bugs within the simple language.
     //
     //====================================================================*/
+
+    @Test
+    // Testing for input with more than 2 arguments
+    public void manyArgumentsTest() {
+        JLisp lisp = new JLisp();
+        try {
+            Integer integer = lisp.eval("( + 1 1 1)");
+            fail("item left in stack");
+        }
+        catch (IllegalArgumentException e) {
+            // pass
+        }
+    }
+
+    @Test
+    // Testing for input without parentheses
+    public void noParenthesesTest() {
+        JLisp lisp = new JLisp();
+        try {
+            lisp.eval("+ 1 1");
+            fail("format of input was wrong (needs parentheses)");
+        }
+        catch (IllegalArgumentException e) {
+            // pass
+        }
+    }
+
+    @Test
+    // Testing for input with RPN format
+    public void wrongOrderTest() {
+        JLisp lisp = new JLisp();
+        try {
+            lisp.eval("(1 1 +)");
+            fail("order of values is wrong");
+        }
+        catch (IllegalArgumentException e) {
+            // pass
+        }
+    }
+
+    @Test
+    // Testing null input
+    public void nullTest() {
+        JLisp lisp = new JLisp();
+        try {
+            lisp.eval(null);
+            fail("null value should return illegal argument exception");
+        }
+        catch (IllegalArgumentException e) {
+            // pass
+        }
+    }
 
     @Test
     // This is a sample test to help you get started
